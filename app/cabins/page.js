@@ -1,11 +1,19 @@
-import Navigation from "@/components/Navigation";
+import Counter from "@/components/Counter";
 
-const cabinPage = () => {
+export default async function cabinPage() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/users");
+  const data = await res.json();
+  console.log(data);
+
   return (
     <div>
-      <Navigation />
       <h1>Cabin Page</h1>
+      <ul>
+        {data.map((user) => (
+          <li key={user.id}>{user.name}</li>
+        ))}
+      </ul>
+      <Counter users={data} />
     </div>
   );
-};
-export default cabinPage;
+}
