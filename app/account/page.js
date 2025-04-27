@@ -1,3 +1,7 @@
+export const metadata = {
+  title: "Guest Area",
+  description: "Manage your account settings and preferences",
+};
 
 const accountPage = () => {
   return (
